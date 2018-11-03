@@ -16,3 +16,16 @@ emtr.on('greet', function(){
 
 // now, it happens
 emtr.emit('greet');
+
+// now use the internal core JavaScript module
+var events = require('events');
+var emtr2 = new events();
+emtr2.on('greet', function(){
+	console.log('Somewhere, someone said hello.');
+});
+emtr2.on('greet', function(){
+	console.log('A greeting occured!');
+});
+emtr2.emit('greet');
+// the only thing different is the firstline and the variable emtr
+// others are all the same, that how to use the internal core.
